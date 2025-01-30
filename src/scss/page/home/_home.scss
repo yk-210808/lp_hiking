@@ -1,0 +1,293 @@
+/* -----------------------------------------------
+* home Module
+* homeページ用
+-------------------------------------------------- */
+@use '../../mixin/mixin'as *;
+@use '../../setting/setting'as *;
+
+.home {
+  .mv-block {
+    background: url(../img/mv.jpg) no-repeat center / cover;
+    height: vw(1688, 1920);
+    max-height: 1688px;
+    min-height: 1000px;
+    padding-top: 1px;
+
+    @include sp {
+      height: 100svh;
+      max-height: none;
+      min-height: auto;
+      background-position: left 30% top;
+    }
+
+    .main-items {
+      max-width: 950px;
+      margin: 287px auto 0;
+
+      @include sp {
+        // margin-top: 200px;
+        margin-top: calc(100svh * 0.15);
+        padding-left: 30px;
+      }
+    }
+
+    .ttl {
+      @include font_chronicle;
+      font-size: 88px;
+      color: #fff;
+      line-height: 1.13;
+      font-weight: 500;
+      margin-top: 10px;
+      text-transform: capitalize;
+
+      @include sp {
+        font-size: 44px;
+      }
+    }
+
+    .sns-items {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: fit-content;
+      gap: 26px;
+      position: absolute;
+      left: 30px;
+      bottom: 0;
+
+      @include sp {
+        left: 10px;
+        top: 100%;
+        bottom: auto;
+      }
+
+      .txt {
+        writing-mode: vertical-rl;
+        text-orientation: mixed;
+        color: #fff;
+        font-weight: bold;
+        font-size: 18px;
+
+        @include sp {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+
+  .scroll-nav {
+    position: fixed;
+    right: 30px;
+    top: 20%;
+    height: fit-content;
+    color: #fff;
+    z-index: 50;
+
+    @include sp {
+      right: 10px;
+      top: auto;
+      bottom: 30px;
+    }
+
+    .list {
+      text-align: right;
+
+      a {
+        font-size: 18px;
+        font-weight: bold;
+        padding: 15px 35px 15px 0;
+        display: inline-block;
+        position: relative;
+
+        @include sp {
+          font-size: 14px;
+          padding: 8px 15px 8px 0;
+        }
+
+        &::after {
+          position: absolute;
+          content: '';
+          width: 3px;
+          height: 100%;
+          background-color: #fff;
+          right: 0;
+          top: 0;
+          opacity: 0.5;
+        }
+
+        &.current {
+          &::after {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+
+  .info-block {
+    background-color: $bg;
+    color: #fff;
+    position: relative;
+    z-index: 1;
+    padding-top: 1px;
+
+    .inner-block {
+      margin-top: -250px;
+      padding-bottom: 100px;
+
+      @include sp{
+        margin-top: 0;
+        padding-top: 50px;
+        padding-bottom: 50px;
+      }
+    }
+
+    &::before {
+      position: absolute;
+      content: '';
+      width: 100%;
+      height: vw(700, 1920);
+      // min-height: 700px;
+      // height: 700px;
+      background: url(../img/bg_gradation.png) no-repeat top / cover;
+      // top: -470px;
+      top: vw(-490, 1920);
+      right: 0;
+      left: 0;
+      margin: auto;
+      z-index: -1;
+    }
+
+    .num {
+      font-size: 240px;
+      font-weight: bold;
+      line-height: 1;
+      opacity: 0.1;
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      @include sp {
+        font-size: 80px;
+      }
+    }
+
+    .ttl {
+      font-size: 64px;
+      @include font_chronicle;
+      font-weight: 500;
+
+      @include sp {
+        font-size: 32px;
+      }
+    }
+
+    .txt {
+      font-weight: bold;
+      font-size: 18px;
+      line-height: 1.77;
+      margin-top: 20px;
+
+      @include sp {
+        font-size: 16px;
+      }
+    }
+
+    .link {
+      color: $accent;
+      font-weight: bold;
+      font-size: 18px;
+      padding-right: 32px;
+      position: relative;
+      display: inline-block;
+      margin-top: 24px;
+
+      @include sp{
+        font-size: 16px;
+      }
+
+      &::after {
+        position: absolute;
+        content: '';
+        width: 16px;
+        height: 24px;
+        background: url(../img/icon_arrow.svg) no-repeat center / 100%;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+      }
+
+      @include pc {
+        &:hover {
+          &::after {
+            right: -15px;
+          }
+        }
+      }
+    }
+
+    .txt-box {
+      padding-top: 103px;
+      padding-bottom: 103px;
+      padding-left: 150px;
+      position: relative;
+      max-width: 782px;
+
+      @include sp{
+        max-width: none;
+        padding: 30px 0 30px 48px;
+      }
+    }
+
+    .info-items {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 50px;
+
+      @include sp {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      &+.info-items {
+        margin-top: 200px;
+
+        @include sp{
+          margin-top: 100px;
+        }
+      }
+
+      &:nth-of-type(2n) {
+        flex-direction: row-reverse;
+
+        @include sp {
+          flex-direction: column;
+        }
+      }
+
+      .img {
+        @include sp {
+          height: 0;
+          padding-top: 65%;
+          position: relative;
+          width: 100%;
+
+          img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+
+            &.bottom {
+              object-position: bottom;
+            }
+          }
+        }
+      }
+    }
+  }
+}

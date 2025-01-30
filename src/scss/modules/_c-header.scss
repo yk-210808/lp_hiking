@@ -1,0 +1,199 @@
+@use '../mixin/mixin'as *;
+@use '../setting/setting'as *;
+
+/* --------------------------------
+c-header
+----------------------------------- */
+.c-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+
+  @include sp{
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    @include sp {
+      padding: 10px 20px;
+      width: 130px;
+    }
+  }
+
+  .inner-block {
+    padding-top: 64px;
+    padding-bottom: 64px;
+    color: #fff;
+    
+    @include pc{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    @include sp {
+      position: absolute;
+      top: 60px;
+      left: 0;
+      background-color: $bg;
+      width: 100%;
+      padding-right: 0;
+      padding-left: 0;
+      padding-top: 0;
+      padding-bottom: 30px;
+      opacity: 0;
+      pointer-events: none
+    }
+
+    &.is_active {
+      @include sp {
+        opacity: 1;
+        pointer-events: all
+      }
+    }
+  }
+
+  .list {
+    @include font_gilroy;
+    font-weight: bold;
+    font-size: 18px;
+    
+    @include pc{
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+
+    @include sp {
+      font-size: 16px;
+    }
+
+    a {
+      @include pc {
+        &:hover {
+          color: $accent;
+        }
+      }
+
+      @include sp {
+        padding: 20px;
+        display: block;
+        border-bottom: 1px solid #fff;
+      }
+    }
+
+    li {
+      &:first-of-type {
+        a {
+          @include sp{
+            border-top: 1px solid #fff;
+          }
+        }
+      }
+    }
+  }
+
+  .account {
+    @include font_gilroy;
+    font-weight: bold;
+    font-size: 17px;
+    position: relative;
+    // padding-left: 32px;
+    display: flex;
+    align-items: center;
+
+    @include sp {
+      font-size: 16px;
+      justify-content: center;
+      margin-top: 20px;
+      padding: 10px;
+    }
+
+    .txt {
+      margin-left: 8px;
+    }
+
+    @include pc {
+      &:hover {
+        // color: $accent;
+
+        // &::before {
+        //   filter: brightness(0) saturate(100%) invert(80%) sepia(81%) saturate(323%) hue-rotate(328deg) brightness(102%) contrast(97%);
+        // }
+      }
+    }
+
+    // &::before {
+    //   position: absolute;
+    //   content: '';
+    //   width: 24px;
+    //   height: 24px;
+    //   background: url(../img/icon_account.svg) no-repeat center center / contain;
+    //   top: 0;
+    //   bottom: 0;
+    //   left: 0;
+    //   margin: auto;
+    // }
+  }
+
+  .link-items {
+    display: flex;
+    align-items: center;
+  }
+
+  .menu-btn {
+    width: 80px;
+    height: 60px;
+    position: relative;
+
+    span {
+      width: 40px;
+      height: 3px;
+      background-color: #fff;
+      display: block;
+      position: absolute;
+      right: 0;
+      left: 0;
+      margin: auto;
+      transition: $transition01;
+
+      &:first-of-type {
+        top: 16px;
+      }
+
+      &:nth-of-type(2) {
+        top: 0;
+        bottom: 0;
+      }
+
+      &:last-of-type {
+        bottom: 16px;
+      }
+    }
+
+    &.is_active {
+      span {
+        &:first-of-type {
+          transform: rotate(45deg) translateX(9px) translateY(9px);
+          // top: 0;
+          // bottom: 0;
+        }
+
+        &:nth-of-type(2) {
+          opacity: 0;
+        }
+
+        &:last-of-type {
+          transform: rotate(-45deg) translateX(9px) translateY(-9px);;
+          // top: 0;
+          // bottom: 0;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,95 @@
+@use '../mixin/mixin'as *;
+@use '../setting/setting'as *;
+
+.c-footer {
+  background-color: $bg;
+  color: #fff;
+
+  .inner-block {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 100px;
+    padding-bottom: 120px;
+
+    @include sp {
+      padding-top: 50px;
+      padding-bottom: 30px;
+    }
+  }
+
+  .logo-area {
+    display: flex;
+    flex-direction: column;
+    
+    @include pc {
+      max-width: 350px;
+    }
+
+    .logo {
+      @include sp {
+        width: 90px;
+      }
+    }
+
+    .txt {
+      font-size: 18px;
+      line-height: 1.77;
+      font-weight: bold;
+      margin-top: 24px;
+      padding-right: 50px;
+
+      @include sp{
+        font-size: 14px;
+        margin-top: 12px;
+      }
+    }
+
+    .copyright {
+      font-size: 18px;
+      line-height: 1.77;
+      font-weight: 500;
+      opacity: 0.5;
+      margin-top: auto;
+
+      @include sp {
+        font-size: 14px;
+        margin-top: 40px;
+      }
+    }
+  }
+
+  .link-items {
+    .ttl{
+      color: $accent;
+      font-size: 24px;
+      line-height: 1.33;
+      font-weight: bold;
+    }
+
+    .list {
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 1.77;
+      margin-top: 24px;
+
+      >li{
+        &+li{
+          margin-top: 16px;
+        }
+      }
+
+      a{
+        @include pc{
+          &:hover {
+            color: $accent;
+          }
+        }
+      }
+    }
+  }
+
+  .link-area {
+    display: flex;
+    gap: 0 212px;
+  }
+}

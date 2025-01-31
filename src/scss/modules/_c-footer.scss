@@ -10,6 +10,8 @@
     justify-content: space-between;
     padding-top: 100px;
     padding-bottom: 120px;
+    gap: 30px;
+    // flex-wrap: wrap;
 
     @include sp {
       padding-top: 50px;
@@ -20,6 +22,7 @@
   .logo-area {
     display: flex;
     flex-direction: column;
+    flex-shrink: 0;
     
     @include pc {
       max-width: 350px;
@@ -35,7 +38,7 @@
       font-size: 18px;
       line-height: 1.77;
       font-weight: bold;
-      margin-top: 24px;
+      margin-top: 32px;
       padding-right: 50px;
 
       @include sp{
@@ -51,9 +54,12 @@
       opacity: 0.5;
       margin-top: auto;
 
+      @include max(820){
+        margin-top: 40px;
+      }
+      
       @include sp {
         font-size: 14px;
-        margin-top: 40px;
       }
     }
   }
@@ -62,8 +68,8 @@
     .ttl{
       color: $accent;
       font-size: 24px;
-      line-height: 1.33;
       font-weight: bold;
+      line-height: 1;
     }
 
     .list {
@@ -91,5 +97,15 @@
   .link-area {
     display: flex;
     gap: 0 212px;
+
+    @include max(1200){
+      gap: 0 20px;
+      width: 50%;
+      justify-content: space-between;
+    }
+
+    @include max(820) {
+      display: none;
+    }
   }
 }

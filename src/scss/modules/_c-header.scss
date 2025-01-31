@@ -10,12 +10,22 @@ c-header
   left: 0;
   width: 100%;
   z-index: 100;
+  background-color: transparent;
+  transition: background-color $transition01;
 
   @include sp{
     height: 60px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+
+  &.bg {
+    background-color: rgba($color: $bg, $alpha: 0.7);
+
+    @include sp {
+      background-color: $bg;
+    }
   }
 
   .logo {
@@ -47,7 +57,11 @@ c-header
       padding-top: 0;
       padding-bottom: 30px;
       opacity: 0;
-      pointer-events: none
+      pointer-events: none;
+      transition: opacity $transition01;
+      height: calc(100svh - 60px);
+      min-height: 100%;
+      overflow: auto;
     }
 
     &.is_active {
@@ -120,7 +134,7 @@ c-header
 
     @include pc {
       &:hover {
-        // color: $accent;
+        color: $accent;
 
         // &::before {
         //   filter: brightness(0) saturate(100%) invert(80%) sepia(81%) saturate(323%) hue-rotate(328deg) brightness(102%) contrast(97%);
@@ -128,17 +142,10 @@ c-header
       }
     }
 
-    // &::before {
-    //   position: absolute;
-    //   content: '';
-    //   width: 24px;
-    //   height: 24px;
-    //   background: url(../img/icon_account.svg) no-repeat center center / contain;
-    //   top: 0;
-    //   bottom: 0;
-    //   left: 0;
-    //   margin: auto;
-    // }
+    .c-svg {
+      width: 24px;
+      height: 24px;
+    }
   }
 
   .link-items {

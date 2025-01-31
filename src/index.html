@@ -31,7 +31,7 @@
     <header>
       <div id="header" class="c-header">
         <div class="logo sp"><img src="/img/logo_company.svg" alt="MNTN"></div>
-        <div class="inner-block wide">
+        <div class="inner-block wide js--headerMenu">
           <div class="logo pc"><img src="/img/logo_company.svg" alt="MNTN"></div>
           <ul class="list">
             <li><a href="#">Equipment</a></li>
@@ -39,14 +39,13 @@
             <li><a href="#">Blog</a></li>
           </ul>
           <a href="#" class="account">
-            <!-- <svg>
-              <use xlink:href="#sprite-icon_account" />
-            </svg> -->
-            <img src="/img/svg/icon_account.svg" alt="">
+            <svg class="c-svg">
+              <use xlink:href='/img/svg/sprite.svg#icon_account' />
+            </svg>
             <span class="txt">Account</span>
           </a>
         </div><!-- /inner-block -->
-        <button type="button" class="menu-btn sp">
+        <button type="button" class="menu-btn sp js--headerMenuBtn">
           <span></span>
           <span></span>
           <span></span>
@@ -55,12 +54,12 @@
     </header>
 
     <main class="home ">
-      <nav class="scroll-nav">
+      <nav class="scroll-nav js--nav">
         <ul class="list">
-          <li><a href="#" class="current">Start</a></li>
-          <li><a href="#block01">01</a></li>
-          <li><a href="#block02">02</a></li>
-          <li><a href="#block03">03</a></li>
+          <li><a href="#" class="current" data-block="0">Start</a></li>
+          <li><a href="#block01" data-block="1">01</a></li>
+          <li><a href="#block02" data-block="2">02</a></li>
+          <li><a href="#block03" data-block="3">03</a></li>
         </ul>
       </nav>
 
@@ -72,25 +71,33 @@
           </div>
           <div class="sns-items">
             <p class="txt">Follow us</p>
-            <a href="#"><img src="/img/icon_insta.svg" alt=""></a>
-            <a href="#"><img src="/img/icon_twitter.svg" alt=""></a>
+            <a href="#">
+              <svg class="c-svg">
+                <use xlink:href='/img/svg/sprite.svg#icon_insta' />
+              </svg>
+            </a>
+            <a href="#">
+              <svg class="c-svg">
+                <use xlink:href='/img/svg/sprite.svg#icon_twitter' />
+              </svg>
+            </a>
           </div>
         </div>
       </div>
 
       <div class="info-block">
         <div class="inner-block">
-          <div class="info-items">
+          <div id="block01" class="info-items js--infoItems" data-block="1">
             <div class="txt-box">
               <p class="num">01</p>
               <p class="c-sub-ttl">GEt Started</p>
-              <h2 class="ttl">What level of  hiker are you?</h2>
+              <h2 class="ttl">What level of hiker are you?</h2>
               <p class="txt">Determining what level of hiker you are can be an important tool when planning future hikes. This hiking level guide will help you plan hikes according to different hike ratings set by various websites like All Trails and Modern Hiker. What type of hiker are you – novice, moderate, advanced moderate, expert, or expert backpacker?</p>
               <a href="#" class="link">read more</a>
             </div>
             <div class="img"><img class="bottom" src="/img/img_01.jpg" alt=""></div>
           </div>
-          <div class="info-items">
+          <div id="block02" class="info-items js--infoItems" data-block="2">
             <div class="txt-box">
               <p class="num">02</p>
               <p class="c-sub-ttl">Hiking Essentials</p>
@@ -100,7 +107,7 @@
             </div>
             <div class="img"><img src="/img/img_02.jpg" alt=""></div>
           </div>
-          <div class="info-items">
+          <div id="block03" class="info-items js--infoItems" data-block="3">
             <div class="txt-box">
               <p class="num">03</p>
               <p class="c-sub-ttl">where you go is the key</p>

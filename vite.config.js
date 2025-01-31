@@ -4,7 +4,8 @@ import viteImagemin from 'vite-plugin-imagemin';
 import { fileURLToPath } from 'node:url';
 import { globSync } from 'glob';
 import path from 'path';
-import createSvgSpritePlugin from 'vite-plugin-svg-sprite';
+import ViteSvgSpriteWrapper from 'vite-svg-sprite-wrapper';
+import SVGSpriter from 'svg-sprite';
 
 const htmlFiles = Object.fromEntries(
   globSync('src/**/*.html').map(file => [
@@ -15,6 +16,13 @@ const htmlFiles = Object.fromEntries(
     fileURLToPath(new URL(file, import.meta.url)),
   ])
 );
+
+const exclusionFiles = (assetInfo) => {
+  if (assetInfo.name === 'sprite.svg') {
+    return ''; // 無視する
+  }
+  return 'assets/[name].[ext]';
+}
 
 
 export default defineConfig({
@@ -35,6 +43,18 @@ export default defineConfig({
       sourcemap: false, // Add sourcemap
       rollupOptions: {
         input: htmlFiles,
+        output: {
+          entryFileNames: `assets/[name].js`,
+          chunkFileNames: `assets/[name].js`,
+          assetFileNames: (assetInfo) => {
+            if(assetInfo.name === 'sprite.svg') {
+              // ライブラリ側で勝手にassets内へ生成されてしまうため、上書きする
+              return 'img/svg/sprite.svg'
+            }else {
+              return 'assets/[name].[ext]'
+            }
+          },
+        },
       }
   },
   css: {
@@ -70,11 +90,10 @@ export default defineConfig({
         ],
       },
     }),
-    createSvgSpritePlugin({
-      // exportType: 'vanilla', // or 'react' or 'vue'
-      include: path.resolve(__dirname, 'static/img/svg/*.svg'),
-      symbolId: 'sprite-[name]',
-      injectTo: 'body',
+    ViteSvgSpriteWrapper({
+      icons: 'static/img/svg/*.svg',
+      outputDir: 'static/img/svg/',
+      sprite: SVGSpriter.Config,
     }),
-  ]
+  ],
 })

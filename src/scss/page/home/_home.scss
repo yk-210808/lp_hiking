@@ -24,6 +24,14 @@
       max-width: 950px;
       margin: 287px auto 0;
 
+      @include pc {
+        @include max(1200) {
+          margin-top: 200px;
+          margin-right: 120px;
+          margin-left: 70px;
+        }
+      }
+
       @include sp {
         // margin-top: 200px;
         margin-top: calc(100svh * 0.15);
@@ -37,11 +45,18 @@
       color: #fff;
       line-height: 1.13;
       font-weight: 500;
-      margin-top: 10px;
+      margin-top: 20px;
       text-transform: capitalize;
+
+      @include pc {
+        @include max(1200) {
+          font-size: 50px;
+        }
+      }
 
       @include sp {
         font-size: 44px;
+        margin-top: 10px;
       }
     }
 
@@ -72,13 +87,27 @@
           font-size: 14px;
         }
       }
+
+      .c-svg {
+        width: 24px;
+        height: 24px;
+      }
+      
+      a {
+        color: #fff;
+        @include pc {
+          &:hover {
+            color: $accent;
+          }
+        }
+      }
     }
   }
 
   .scroll-nav {
     position: fixed;
-    right: 30px;
-    top: 20%;
+    right: 70px;
+    top: 26%;
     height: fit-content;
     color: #fff;
     z-index: 50;
@@ -167,6 +196,14 @@
       top: 0;
       left: 0;
 
+      @include pc {
+        padding-top: 10px;
+
+        @include max(1000) {
+          font-size: 140px;
+        }
+      }
+
       @include sp {
         font-size: 80px;
       }
@@ -176,9 +213,18 @@
       font-size: 64px;
       @include font_chronicle;
       font-weight: 500;
+      line-height: 1.2;
+      margin-top: 20px;
+
+      @include pc{
+        @include max(1000){
+          font-size: 52px;
+        }
+      }
 
       @include sp {
         font-size: 32px;
+        margin-top: 10px;
       }
     }
 
@@ -186,10 +232,11 @@
       font-weight: bold;
       font-size: 18px;
       line-height: 1.77;
-      margin-top: 20px;
+      margin-top: 27px;
 
       @include sp {
         font-size: 16px;
+        margin-top: 18px;
       }
     }
 
@@ -197,20 +244,21 @@
       color: $accent;
       font-weight: bold;
       font-size: 18px;
-      padding-right: 32px;
+      padding-right: 42px;
       position: relative;
       display: inline-block;
       margin-top: 24px;
 
       @include sp{
         font-size: 16px;
+        padding-right: 32px;
       }
 
       &::after {
         position: absolute;
         content: '';
-        width: 16px;
-        height: 24px;
+        width: 26px;
+        height: 34px;
         background: url(../img/icon_arrow.svg) no-repeat center / 100%;
         right: 0;
         top: 0;
@@ -225,18 +273,48 @@
           }
         }
       }
+
+      @include sp {
+        &::after{
+          width: 16px;
+          height: 24px;
+        }
+      }
     }
 
     .txt-box {
-      padding-top: 103px;
-      padding-bottom: 103px;
+      padding-top: 104px;
+      padding-bottom: 104px;
       padding-left: 150px;
       position: relative;
       max-width: 782px;
 
-      @include sp{
+      @include pc {
+        @include minmax(850, 1200) {
+          max-width: 50%;
+        }
+
+        @include max(1000) {
+          padding-left: 60px;
+          padding-top: 65px;
+          padding-bottom: 65px;
+        }
+      }
+
+      @include max(850) {
         max-width: none;
+        padding-bottom: 30px;
+      }
+      
+      @include sp{
         padding: 30px 0 30px 48px;
+      }
+    }
+
+    .c-sub-ttl {
+      @include pc {
+        margin-top: 10px;
+        padding-left: 94px;
       }
     }
 
@@ -246,15 +324,18 @@
       align-items: center;
       gap: 50px;
 
-      @include sp {
+      @include max(850){
         flex-direction: column;
+      }
+
+      @include sp {
         gap: 20px;
       }
 
       &+.info-items {
         margin-top: 200px;
 
-        @include sp{
+        @include max(850) {
           margin-top: 100px;
         }
       }
@@ -262,13 +343,13 @@
       &:nth-of-type(2n) {
         flex-direction: row-reverse;
 
-        @include sp {
+        @include max(850) {
           flex-direction: column;
         }
       }
 
       .img {
-        @include sp {
+        @include max(850) {
           height: 0;
           padding-top: 65%;
           position: relative;

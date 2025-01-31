@@ -202,9 +202,8 @@
       const itemsParent = infoItems.parents('.info-block')
 
       const windowHeight = $(window).height()
-      const parentHeight = itemsParent.outerHeight()
       const parentTop = itemsParent.offset().top
-      const parentExtra = deviceFlag ? 100 : 500
+      const parentExtra = deviceFlag ? 0 : 500
 
 
       let items = []
@@ -221,8 +220,9 @@
         const scroll = $(this).scrollTop()
         const scrollBottom = scroll + windowHeight
         const scrollCenter = scroll + windowHeight / 2
+        const basePosition = deviceFlag ? scrollBottom : scrollCenter;
 
-        if (scrollCenter < parentTop - parentExtra) { // Start
+        if (basePosition < parentTop - parentExtra) { // Start
           const a = nav.find('a[data-block="0"]')
           nav.find('.current').removeClass('current')
 

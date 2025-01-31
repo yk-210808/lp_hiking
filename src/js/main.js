@@ -220,7 +220,7 @@
         const scroll = $(this).scrollTop()
         const scrollBottom = scroll + windowHeight
         const scrollCenter = scroll + windowHeight / 2
-        const basePosition = deviceFlag ? scrollBottom : scrollCenter;
+        const basePosition = deviceFlag ? scrollBottom / 1.5 : scrollCenter;
 
         if (basePosition < parentTop - parentExtra) { // Start
           const a = nav.find('a[data-block="0"]')

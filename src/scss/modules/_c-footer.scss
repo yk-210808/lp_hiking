@@ -22,9 +22,9 @@
   .logo-area {
     display: flex;
     flex-direction: column;
-    flex-shrink: 0;
     
     @include pc {
+      flex-shrink: 0;
       max-width: 350px;
     }
 

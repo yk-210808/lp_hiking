@@ -198,35 +198,6 @@ button::after {
 }
 
 //独自font-family読み込み
-//@font-face {
-//  src: url(../font/NotoSansJP-Medium.woff) format("woff"),
-//    url(../font/NotoSansJP-Medium.otf) format("opentype");
-//  font-family: "Noto Sans JP";
-//  font-weight: 500;
-//  font-display: swap;
-//}
-//@font-face {
-//  src: url(../font/NotoSansJP-Bold.woff) format("woff"),
-//    url(../font/NotoSansJP-Bold.otf) format("opentype");
-//  font-family: "Noto Sans JP";
-//  font-weight: 700;
-//  font-display: swap;
-//}
-//@font-face {
-//  src: url(../font/NotoSerifJP-Medium.woff) format("woff"),
-//    url(../font/NotoSerifJP-Medium.otf) format("opentype");
-//  font-family: "Noto Serif JP";
-//  font-weight: 500;
-//  font-display: swap;
-//}
-//@font-face {
-//  src: url(../font/NotoSerifJP-Bold.woff) format("woff"),
-//    url(../font/NotoSerifJP-Bold.otf) format("opentype");
-//  font-family: "Noto Serif JP";
-//  font-weight: 700;
-//  font-display: swap;
-//}
-
 // Gilroy
 @font-face {
   src: url(../fonts/Gilroy-Regular.ttf) format("truetype");
@@ -234,12 +205,14 @@ button::after {
   font-weight: 400;
   font-display: swap;
 }
+
 @font-face {
   src: url(../fonts/Gilroy-Medium.ttf) format("truetype");
   font-family: "Gilroy";
   font-weight: 500;
   font-display: swap;
 }
+
 @font-face {
   src: url(../fonts/Gilroy-Bold.ttf) format("truetype");
   font-family: "Gilroy";
@@ -254,12 +227,14 @@ button::after {
   font-weight: 500;
   font-display: swap;
 }
+
 @font-face {
   src: url(../fonts/Chronicle-Display-Bold.otf) format("opentype");
   font-family: "Chronicle";
   font-weight: bold;
   font-display: swap;
 }
+
 @font-face {
   src: url(../fonts/Chronicle-Display-Black.otf) format("opentype");
   font-family: "Chronicle";
@@ -270,6 +245,7 @@ button::after {
 .gilroy {
   font-family: "Gilroy", "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", "メイリオ", Meiryo, sans-serif;
 }
+
 .chronicle {
   font-family: "Chronicle", 游明朝, "Yu Mincho", YuMincho, "Hiragino Mincho ProN", "Hiragino Mincho Pro", HGS明朝E, serif;
 }
@@ -287,4 +263,23 @@ button::after {
   height: 100%;
   top: 0;
   left: 0;
+}
+
+// フェードイン
+.anim {
+  opacity: 0;
+}
+
+.anim.fadeIn.is-animated {
+  animation: fadeIn 0.7s cubic-bezier(0.33, 1, 0.68, 1) forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }

@@ -248,5 +248,24 @@
     }
   })
 
+  /**
+   * Fade in
+   */
+  $(function(){
+    $(window).scroll(function (){
+      var animTrigger = $('.anim');
+      $(animTrigger).each(function(){
+        var scroll = $(window).scrollTop(),
+            elemTop = $(this).offset().top,
+            windowHeight = $(window).height();
+
+        if (scroll > elemTop - windowHeight + 200){
+          $(this).addClass('is-animated');
+        }
+      });
+    });
+    $(window).trigger('scroll');
+
+  });
 
 })(jQuery);
